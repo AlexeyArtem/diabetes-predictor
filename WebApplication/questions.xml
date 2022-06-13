@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<ArrayOfQuestionModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestionModel>
+    <Key>HighBP</Key>
+    <Text>У вас высокое давление?</Text>
+    <AnswerChoices>
+      <AnswerModel>
+        <Value>0</Value>
+        <Text>Да</Text>
+      </AnswerModel>
+      <AnswerModel>
+        <Value>1</Value>
+        <Text>Нет</Text>
+      </AnswerModel>
+    </AnswerChoices>
+  </QuestionModel>
+  <QuestionModel>
+    <Key>HighChol</Key>
+    <Text>У вас высокие холестерин?</Text>
+    <AnswerChoices>
+      <AnswerModel>
+        <Value>0</Value>
+        <Text>Да</Text>
+      </AnswerModel>
+      <AnswerModel>
+        <Value>1</Value>
+        <Text>Нет</Text>
+      </AnswerModel>
+    </AnswerChoices>
+  </QuestionModel>
+  <QuestionModel>
+    <Key>BMI</Key>
+    <Text>Какой у вас рост и вес?</Text>
+  </QuestionModel>
+	<QuestionModel>
+		<Key>Test</Key>
+		<Text>Тестовый вопрос?</Text>
+	</QuestionModel>
+</ArrayOfQuestionModel>
