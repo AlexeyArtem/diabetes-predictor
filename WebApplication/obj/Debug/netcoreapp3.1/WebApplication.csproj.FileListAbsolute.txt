@@ -34,4 +34,6 @@ D:\Данные Google Drive\Формализованные модели и ме
 D:\Данные Google Drive\Формализованные модели и методы решения аналитических задач\Курсовая работа\Project\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.pdb
 D:\Данные Google Drive\Формализованные модели и методы решения аналитических задач\Курсовая работа\Project\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.genruntimeconfig.cache
 D:\Данные Google Drive\Формализованные модели и методы решения аналитических задач\Курсовая работа\Project\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.csproj.CopyComplete
-D:\Данные Google Drive\Формализованные модели и методы решения аналитических задач\Курсовая работа\Project\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Quiz.cshtml.g.cs
+D:\Данные Google Drive\Формализованные модели и методы решения аналитических задач\Курсовая работа\Project\WebApplication\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Данные Google Drive\Формализованные модели и методы решения аналитических задач\Курсовая работа\Project\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Quiz\Index.cshtml.g.cs
+D:\Данные Google Drive\Формализованные модели и методы решения аналитических задач\Курсовая работа\Project\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Predict.cshtml.g.cs

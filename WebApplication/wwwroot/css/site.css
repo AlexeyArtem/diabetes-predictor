@@ -46,9 +46,26 @@ html {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
+.question-block {
+  border: 1px solid #bdbdbd;
+  width: 75%;
+  border-radius: 4px;
+  margin-top: 40px;
+  background-color: #f0ffff;
+  padding: 8px;
+}
+
 button.accept-policy {
   font-size: 1rem;
   line-height: inherit;
+}
+
+h2.display-4 {
+  font-size: 1.5rem;
+}
+
+#main-btn {
+    font-size: 1.8rem;
 }
 
 /* Sticky footer styles

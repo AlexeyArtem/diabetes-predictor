@@ -29,7 +29,6 @@ namespace WebApplication.Controllers
             }
         }
 
-        [ActionName("Quiz")]
         public IActionResult Index()
         {
             return View(questions);

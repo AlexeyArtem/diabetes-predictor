@@ -1,39 +1,316 @@
 <?xml version="1.0"?>
 <ArrayOfQuestionModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <QuestionModel>
-    <Key>HighBP</Key>
-    <Text>У вас высокое давление?</Text>
-    <AnswerChoices>
-      <AnswerModel>
-        <Value>0</Value>
-        <Text>Да</Text>
-      </AnswerModel>
-      <AnswerModel>
-        <Value>1</Value>
-        <Text>Нет</Text>
-      </AnswerModel>
-    </AnswerChoices>
-  </QuestionModel>
-  <QuestionModel>
-    <Key>HighChol</Key>
-    <Text>У вас высокие холестерин?</Text>
-    <AnswerChoices>
-      <AnswerModel>
-        <Value>0</Value>
-        <Text>Да</Text>
-      </AnswerModel>
-      <AnswerModel>
-        <Value>1</Value>
-        <Text>Нет</Text>
-      </AnswerModel>
-    </AnswerChoices>
-  </QuestionModel>
-  <QuestionModel>
-    <Key>BMI</Key>
-    <Text>Какой у вас рост и вес?</Text>
-  </QuestionModel>
+
 	<QuestionModel>
-		<Key>Test</Key>
-		<Text>Тестовый вопрос?</Text>
+		<Key>Sex</Key>
+		<Text>Укажите ваш пол</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Мужчина</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>0</Value>
+				<Text>Женщина</Text>
+			</ChoiceModel>
+		</AnswerChoices>
 	</QuestionModel>
+
+	<QuestionModel>
+		<Key>Age</Key>
+		<Text>Укажите ваш возраст</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>18-24</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>2</Value>
+				<Text>25-29</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>3</Value>
+				<Text>30-34</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>4</Value>
+				<Text>35-39</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>5</Value>
+				<Text>40-44</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>6</Value>
+				<Text>45-49</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>7</Value>
+				<Text>50-54</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>8</Value>
+				<Text>55-59</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>9</Value>
+				<Text>60-64</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>10</Value>
+				<Text>65-69</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>11</Value>
+				<Text>70-74</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>12</Value>
+				<Text>75-79</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>13</Value>
+				<Text>Больше 80</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+
+	<QuestionModel>
+		<Key>Education</Key>
+		<Text>Укажите ваш уровень образования</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Нет образования</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>2</Value>
+				<Text>Начальная школа</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>3</Value>
+				<Text>Старшие классы</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>4</Value>
+				<Text>Средняя школа</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>5</Value>
+				<Text>Колледж</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>6</Value>
+				<Text>Университет</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+	
+	<QuestionModel>
+		<Key>HighBP</Key>
+		<Text>У вас высокий уровень давления?</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Да</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>0</Value>
+				<Text>Нет</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+	
+	<QuestionModel>
+		<Key>HighChol</Key>
+		<Text>У вас высокий уровень холестирина?</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Да</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>0</Value>
+				<Text>Нет</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+
+	<QuestionModel>
+		<Key>CholCheck</Key>
+		<Text>Проверяли ли вы уровень холестирина за последние 5 лет?</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Да</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>0</Value>
+				<Text>Нет</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+
+	<QuestionModel>
+		<Key>Stroke</Key>
+		<Text>Был ли у Вас инсульт?</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Да</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>0</Value>
+				<Text>Нет</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+
+	<QuestionModel>
+		<Key>HeartDiseaseorAttack</Key>
+		<Text>Есть ли у вас ишемическая болезнь сердца или инфаркт миокардо?</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Да</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>0</Value>
+				<Text>Нет</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+
+	<QuestionModel>
+		<Key>PhysActivity</Key>
+		<Text>Делали ли вы физические упражнения за последние 30 дней?</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Да</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>0</Value>
+				<Text>Нет</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+
+	<QuestionModel>
+		<Key>Fruits</Key>
+		<Text>Употребляете ли вы фрукты хотя бы один раз в день?</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Да</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>0</Value>
+				<Text>Нет</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+
+	<QuestionModel>
+		<Key>Veggies</Key>
+		<Text>Употребляете ли вы овощи хотя бы один раз в день?</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Да</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>0</Value>
+				<Text>Нет</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+
+	<QuestionModel>
+		<Key>HvyAlcoholConsump</Key>
+		<Text>Употребляете ли вы алкоголь?</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Да</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>0</Value>
+				<Text>Нет</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+
+	<QuestionModel>
+		<Key>Smoker</Key>
+		<Text>Вы курите?</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Да</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>0</Value>
+				<Text>Нет</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+
+	<QuestionModel>
+		<Key>DiffWalk</Key>
+		<Text>Испытваете ли вы серьезные трудности при ходьбе или подъеме по лестнице?</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Да</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>0</Value>
+				<Text>Нет</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+
+	<QuestionModel>
+		<Key>MentHlth</Key>
+		<Text>Сколько дней в течение последних 30 дней ваше психическое здоровье было плохим?</Text>
+	</QuestionModel>
+
+	<QuestionModel>
+		<Key>PhysHlth</Key>
+		<Text>Сколько дней в течение последних 30 дней ваше физическое здоровье было плохим (например, были заболевания или травмы)?</Text>
+	</QuestionModel>
+
+	<QuestionModel>
+		<Key>GenHlth</Key>
+		<Text>Как вы оцениваете состояние своего здоровья?</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Отлично</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>2</Value>
+				<Text>Очень хорошо</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>3</Value>
+				<Text>Хорошо</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>4</Value>
+				<Text>Средне</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>5</Value>
+				<Text>Плохо</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+	
+	<QuestionModel>
+		<Key>BMI</Key>
+		<Text>Какой у вас рост и вес?</Text>
+	</QuestionModel>
+	
 </ArrayOfQuestionModel>

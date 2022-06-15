@@ -1,0 +1,184 @@
+﻿@{
+    ViewData["Title"] = "Оценка риска развития сахарного диабета";
+}
+@model QuestionModel[]
+
+<h1>@ViewData["Title"]</h1>
+<p>Пройдите тест, чтобы узнать вероятность заболевания диабетом</p>
+
+<span id="currentQuestion" style="display: none">1</span>
+@*Создание блоков с вопросами*@
+@using (Html.BeginForm())
+{
+    for (int i = 0; i < Model.Length; i++)
+    {
+        int number = i + 1;
+
+        <div class="question-block" id="blockId_@number" data-key="@Model[i].Key" style="display:none">
+
+            @*Текст и номер вопроса*@
+            <div>
+                <span class="label label-warning">@number / @Model.Length</span>
+                <p>@Model[i].Text</p>
+            </div>
+
+            @*Варианты ответов*@
+            <div class="choices">
+                @if (Model[i].AnswerChoices.Count == 0)
+                {
+
+                    if (Model[i].Key == "BMI")
+                    {
+                        <input type="number" name="height" placeholder="Введите рост (см)" min="1">
+                        <input type="number" name="weight" placeholder="Введите вес (кг)" min="1">
+                    }
+                    else
+                    {
+                        <input type="number" placeholder="Введите значение" min="0" max="30">
+                    }
+                }
+                @foreach (var answer in Model[i].AnswerChoices)
+                {
+                    <label class="radio-inline">
+                        <input type="radio" name="choice_@i" value=@answer.Value>
+                        @answer.Text
+                    </label>
+                }
+            </div>
+
+        </div>
+    }
+
+    <button type="button" id="previousQuestionBtn" class="btn btn-dark">Назад</button>
+    <button type="button" id="nextQuestionBtn" class="btn btn-dark">Дальше</button>
+
+    <button type="submit" class="btn">Получить результат</button>
+}
+
+<div id="resultPredict"></div>
+
+
+
+@section Scripts
+{
+    <script>
+
+        function switchQuestion() {
+            //TODO: создать общую функцию для переключения вопросов назад или вперед
+        }
+
+        function validateInput(questionBlockId) {
+
+        }
+
+        // Расчет индекса массы тела (вес в кг, рост в см)
+        function calculateBmi(weight, height) {
+            let w = parseInt(weight);
+            let h = parseInt(height);
+
+            let bmi = w / ((h / 100) * (h / 100));
+            return bmi;
+        }
+
+        function getAnswers() {
+            let answers = new Array();
+
+            for (let i = 0; i < @Model.Length; i++) {
+                let block = '#blockId_' + (i + 1);
+                let key = $(block).data('key');
+
+                let inputs = $(block + ' :input');
+
+                let answer = new Object();
+                for (let i = 0; i < inputs.length; i++) {
+                    if (inputs[i].type === 'radio' && inputs[i].checked) {
+
+                        answer.QuestionKey = key;
+                        answer.AnswerValue = parseInt(inputs[i].value);
+                        answers.push(answer);
+                        break;
+                    }
+                    else if (inputs[i].type === 'number')
+                    {
+                        let value = parseInt(inputs[i].value);
+                        if (key === 'BMI') {
+                            let weight = $("input[name='weight']").val();
+                            let height = $("input[name='height']").val();
+                            value = calculateBmi(weight, height);
+                        }
+
+                        answer.QuestionKey = key;
+                        answer.AnswerValue = value;
+                        answers.push(answer);
+                        break;
+                    }
+                }
+            }
+
+            return answers;
+        }
+
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('#blockId_1').css("display", "block");
+
+            // Обработчик события нажатия кнопки перехода к следующему вопросу
+            $('#nextQuestionBtn').on('click', function () {
+
+                let numberQuestion = parseInt($('#currentQuestion').text());
+
+                let currentBlock = '#blockId_' + numberQuestion;
+                $(currentBlock).css("display", "none");
+
+                let nextBlock = '#blockId_' + (numberQuestion + 1);
+                $(nextBlock).css("display", "block");
+
+                $('#currentQuestion').text(numberQuestion + 1);
+            });
+
+            // Обработчик события нажатия кнопки перехода к прошлому вопросу
+            $('#previousQuestionBtn').on('click', function () {
+
+                let numberQuestion = parseInt($('#currentQuestion').text());
+
+                let currentBlock = '#blockId_' + numberQuestion;
+                $(currentBlock).css("display", "none");
+
+                let nextBlock = '#blockId_' + (numberQuestion - 1);
+                $(nextBlock).css("display", "block");
+
+                $('#currentQuestion').text(numberQuestion - 1);
+            });
+
+            // Отправка формы
+            $('form').submit(function (e) {
+
+                e.preventDefault();
+
+                let answers = getAnswers();
+                console.log(answers);
+                let dataJson = JSON.stringify(answers);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Predict/GetPredict',
+                    contentType: 'application/json',
+                    data: dataJson,
+                    success: function (data) {
+                        $('#resultPredict').html(data);
+                    },
+                    error: function (data) {
+                        alert("Возникла непредвиденная ошибка. Попробуйте повторить действие позже.");
+                        console.log(data);
+                    }
+                });
+
+            });
+        });
+
+    </script>
+}
