@@ -67,8 +67,43 @@
             //TODO: создать общую функцию для переключения вопросов назад или вперед
         }
 
-        function validateInput(questionBlockId) {
+        function validateInputsQuestion(numberQuestion) {
+            let number = parseInt(numberQuestion);
+            let inputsRadio = $('#blockId_' + number + " :input[type='radio']");
+            let inputsNumber = $('#blockId_' + number + " :input[type='number']");
 
+            if (inputsRadio.length > 0) {
+                let isValid = false;
+                for (var i = 0; i < inputsRadio.length; i++) {
+                    if (inputsRadio[i].checked) {
+                        isValid = true;
+                        break;
+                    }
+                }
+                return isValid;
+            }
+            else if (inputsNumber.length > 0) {
+                let isValid = true;
+                for (var i = 0; i < inputsNumber.length; i++) {
+                    let input = parseInt(inputsNumber[i].value);
+
+                    if (isNaN(input)) {
+                        isValid = false;
+                    }
+                    else {
+                        let min = parseInt(inputsNumber[i].min);
+                        let max = parseInt(inputsNumber[i].max);
+
+                        if (!isNaN(min) && input < min) {
+                            isValid = false;
+                        }
+                        if (!isNaN(max) && input > max) {
+                            isValid = false;
+                        }
+                    }
+                }
+                return isValid;
+            }
         }
 
         // Расчет индекса массы тела (вес в кг, рост в см)
@@ -76,8 +111,14 @@
             let w = parseInt(weight);
             let h = parseInt(height);
 
-            let bmi = w / ((h / 100) * (h / 100));
-            return bmi;
+            if (w > 0 && h > 0) {
+
+                let bmi = w / ((h / 100) * (h / 100));
+                return bmi;
+            }
+            else {
+                return 0;
+            }
         }
 
         function getAnswers() {
@@ -130,6 +171,11 @@
             $('#nextQuestionBtn').on('click', function () {
 
                 let numberQuestion = parseInt($('#currentQuestion').text());
+                let isValid = validateInputsQuestion(numberQuestion);
+                if (!isValid) {
+                    alert("Необходимо ответить на текущий вопрос, чтобы перейти к следующему.");
+                    return;
+                }
 
                 let currentBlock = '#blockId_' + numberQuestion;
                 $(currentBlock).css("display", "none");
