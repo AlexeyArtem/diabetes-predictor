@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "37mkzSs6idsaoQPz+It/WztSYh9WDKK+1RtYGemuUZMi6gRH1F/gbnTdBUskM8DcZZBYnN3hy0oloSj1GVZTUQ==",
+  "dgSpecHash": "5D4hG0efCIpWEASn98MBURL70ReZOuO029uXKWxBQcW5622rUFljrkwNRmp/nEaA8HlbDmQ625ILt34CddRqFQ==",
   "success": true,
-  "projectFilePath": "D:\\Данные Google Drive\\Формализованные модели и методы решения аналитических задач\\Курсовая работа\\Project\\WebApplication\\WebApplication.csproj",
+  "projectFilePath": "C:\\Users\\Artem\\Desktop\\diabetes-predictor\\WebApplication\\WebApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Artem\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],

@@ -37,3 +37,42 @@ D:\Данные Google Drive\Формализованные модели и ме
 D:\Данные Google Drive\Формализованные модели и методы решения аналитических задач\Курсовая работа\Project\WebApplication\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Данные Google Drive\Формализованные модели и методы решения аналитических задач\Курсовая работа\Project\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Quiz\Index.cshtml.g.cs
 D:\Данные Google Drive\Формализованные модели и методы решения аналитических задач\Курсовая работа\Project\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Predict.cshtml.g.cs
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\WebApplication.exe
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\WebApplication.deps.json
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\WebApplication.runtimeconfig.json
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\WebApplication.runtimeconfig.dev.json
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\WebApplication.dll
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\WebApplication.pdb
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\WebApplication.Views.dll
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\WebApplication.Views.pdb
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.csprojAssemblyReference.cache
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.AssemblyInfoInputs.cache
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.AssemblyInfo.cs
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.csproj.CoreCompileInputs.cache
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.RazorAssemblyInfo.cache
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.RazorAssemblyInfo.cs
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\staticwebassets\WebApplication.StaticWebAssets.Manifest.cache
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\staticwebassets\WebApplication.StaticWebAssets.xml
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\scopedcss\bundle\WebApplication.styles.css
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.TagHelpers.input.cache
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.TagHelpers.output.cache
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.RazorCoreGenerate.cache
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Quiz\Index.cshtml.g.cs
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Predict.cshtml.g.cs
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.RazorTargetAssemblyInfo.cache
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.RazorTargetAssemblyInfo.cs
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.Views.pdb
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.csproj.CopyComplete
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.dll
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.pdb
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.genruntimeconfig.cache

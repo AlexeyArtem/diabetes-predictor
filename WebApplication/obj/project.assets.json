@@ -53,11 +53,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Данные Google Drive\\Формализованные модели и методы решения аналитических задач\\Курсовая работа\\Project\\WebApplication\\WebApplication.csproj",
+      "projectUniqueName": "C:\\Users\\Artem\\Desktop\\diabetes-predictor\\WebApplication\\WebApplication.csproj",
       "projectName": "WebApplication",
-      "projectPath": "D:\\Данные Google Drive\\Формализованные модели и методы решения аналитических задач\\Курсовая работа\\Project\\WebApplication\\WebApplication.csproj",
+      "projectPath": "C:\\Users\\Artem\\Desktop\\diabetes-predictor\\WebApplication\\WebApplication.csproj",
       "packagesPath": "C:\\Users\\Artem\\.nuget\\packages\\",
-      "outputPath": "D:\\Данные Google Drive\\Формализованные модели и методы решения аналитических задач\\Курсовая работа\\Project\\WebApplication\\obj\\",
+      "outputPath": "C:\\Users\\Artem\\Desktop\\diabetes-predictor\\WebApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
