@@ -48,7 +48,6 @@ C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1
 C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\WebApplication.Views.dll
 C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\WebApplication.Views.pdb
 C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.csprojAssemblyReference.cache
 C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.AssemblyInfoInputs.cache
 C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.AssemblyInfo.cs
 C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.csproj.CoreCompileInputs.cache
@@ -76,3 +75,4 @@ C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1
 C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.dll
 C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.pdb
 C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.genruntimeconfig.cache
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.csprojAssemblyReference.cache

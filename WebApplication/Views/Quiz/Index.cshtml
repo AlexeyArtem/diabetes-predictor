@@ -1,78 +1,123 @@
 ﻿@{
     ViewData["Title"] = "Оценка риска развития сахарного диабета";
+    int firstQuestionNumber = 1;
+    int lastQuestionNumber = Model.Length;
 }
 @model QuestionModel[]
 
-<h1>@ViewData["Title"]</h1>
-<p>Пройдите тест, чтобы узнать вероятность заболевания диабетом</p>
+<h1 class="text-center">@ViewData["Title"]</h1>
+<p class="text-center">Пройдите тест, чтобы узнать вероятность заболевания диабетом</p>
 
-<span id="currentQuestion" style="display: none">1</span>
-@*Создание блоков с вопросами*@
-@using (Html.BeginForm())
-{
-    for (int i = 0; i < Model.Length; i++)
+<span id="currentQuestion" style="display: none">@firstQuestionNumber</span>
+<div class="questions-block shadow p-3 mb-5 bg-white rounded">
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="@lastQuestionNumber"></div>
+    </div>
+    @*Создание формы с вопросами*@
+    @using (Html.BeginForm())
     {
-        int number = i + 1;
+        for (int i = 0; i < Model.Length; i++)
+        {
+            int number = i + 1;
 
-        <div class="question-block" id="blockId_@number" data-key="@Model[i].Key" style="display:none">
+            <div class="question-block" id="blockId_@number" data-key="@Model[i].Key" style="display:none">
 
-            @*Текст и номер вопроса*@
-            <div>
-                <span class="label label-warning">@number / @Model.Length</span>
-                <p>@Model[i].Text</p>
-            </div>
+                <p class="lead text-center">@Model[i].Text</p>
 
-            @*Варианты ответов*@
-            <div class="choices">
-                @if (Model[i].AnswerChoices.Count == 0)
-                {
-
-                    if (Model[i].Key == "BMI")
+                @*Варианты ответов*@
+                <div class="choices text-center">
+                    @if (Model[i].AnswerChoices.Count == 0)
                     {
-                        <input type="number" name="height" placeholder="Введите рост (см)" min="1">
-                        <input type="number" name="weight" placeholder="Введите вес (кг)" min="1">
-                    }
-                    else
-                    {
-                        <input type="number" placeholder="Введите значение" min="0" max="30">
-                    }
-                }
-                @foreach (var answer in Model[i].AnswerChoices)
-                {
-                    <label class="radio-inline">
-                        <input type="radio" name="choice_@i" value=@answer.Value>
-                        @answer.Text
-                    </label>
-                }
-            </div>
 
+                        if (Model[i].Key == "BMI")
+                        {
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="number" class="form-control text-center" name="height" placeholder="Введите рост (см)" min="1" required>
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control text-center" name="weight" placeholder="Введите вес (кг)" min="1">
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <input type="range" class="form-control-range text-center" placeholder="Введите значение" min="0" max="30" oninput="$('#rangeval').html($(this).val())">
+                            <span id="rangeval">15</span>
+                        }
+                    }
+
+                    @{
+                        int countChoices = Model[i].AnswerChoices.Count;
+                        if (countChoices > 2)
+                        {
+                            <select class="custom-select my-1 mr-sm-2 text-center">
+                                @foreach (var answer in Model[i].AnswerChoices)
+                                {
+                                    <option value="@answer.Value" name="choice_@i">@answer.Text</option>
+                                }
+                            </select>
+                        }
+                        else
+                        {
+                            int numAnswer = 0;
+                            @foreach (var answer in Model[i].AnswerChoices)
+                            {
+                                string idChoice = "choice_" + Model[i].Key + numAnswer;
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="@idChoice" value="@answer.Value" name="choice_@i" class="custom-control-input">
+                                    <label class="custom-control-label" for="@idChoice">@answer.Text</label>
+                                </div>
+                                numAnswer++;
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        }
+        <div class="invalid-feedback text-center">Необходимо ответить на текущий вопрос, чтобы перейти к следующему</div><br>
+
+        <div class="text-center">
+            <button type="button" id="previousQuestionBtn" class="btn btn-primary">Назад</button>
+            <button type="button" id="nextQuestionBtn" class="btn btn-primary">Далее</button>
         </div>
     }
 
-    <button type="button" id="previousQuestionBtn" class="btn btn-dark">Назад</button>
-    <button type="button" id="nextQuestionBtn" class="btn btn-dark">Дальше</button>
+</div>
 
-    <button type="submit" class="btn">Получить результат</button>
-}
 
-<div id="resultPredict"></div>
+<div id="resultPredict" class="text-center">
 
+
+    <div id="loadAnimation">
+        <strong>Подождите, идет загрузка...</strong>
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border text-primary" role="status"></div>
+        </div>
+    </div>
+
+</div>
 
 
 @section Scripts
 {
     <script>
 
-        function switchQuestion() {
-            //TODO: создать общую функцию для переключения вопросов назад или вперед
-        }
-
         function validateInputsQuestion(numberQuestion) {
             let number = parseInt(numberQuestion);
             let inputsRadio = $('#blockId_' + number + " :input[type='radio']");
             let inputsNumber = $('#blockId_' + number + " :input[type='number']");
+            let inputsRange = $('#blockId_' + number + " :input[type='range']");
+            let selectedOptions = $('#blockId_' + number + " select option:selected");
 
-            if (inputsRadio.length > 0) {
+            if (inputsRange.length > 0) {
+                return true;
+            }
+            else if (selectedOptions.length > 0) {
+                return true;
+            }
+            else if (inputsRadio.length > 0) {
                 let isValid = false;
                 for (var i = 0; i < inputsRadio.length; i++) {
                     if (inputsRadio[i].checked) {
@@ -126,37 +171,71 @@
 
             for (let i = 0; i < @Model.Length; i++) {
                 let block = '#blockId_' + (i + 1);
+
                 let key = $(block).data('key');
+                let value = NaN;
 
                 let inputs = $(block + ' :input');
+                let selectedOptions = $(block + " select option:selected");
 
-                let answer = new Object();
-                for (let i = 0; i < inputs.length; i++) {
-                    if (inputs[i].type === 'radio' && inputs[i].checked) {
+                // Получиние значения ответа
+                if (selectedOptions.length > 0) {
+                    value = parseInt(selectedOptions[0].value);
+                }
+                else {
+                    for (let i = 0; i < inputs.length; i++) {
+                        if (inputs[i].type === 'radio' && inputs[i].checked) {
 
-                        answer.QuestionKey = key;
-                        answer.AnswerValue = parseInt(inputs[i].value);
-                        answers.push(answer);
-                        break;
-                    }
-                    else if (inputs[i].type === 'number')
-                    {
-                        let value = parseInt(inputs[i].value);
-                        if (key === 'BMI') {
-                            let weight = $("input[name='weight']").val();
-                            let height = $("input[name='height']").val();
-                            value = calculateBmi(weight, height);
+                            value = parseInt(inputs[i].value);
+                            break;
                         }
-
-                        answer.QuestionKey = key;
-                        answer.AnswerValue = value;
-                        answers.push(answer);
-                        break;
+                        else if (inputs[i].type === 'range') {
+                            value = parseInt(inputs[i].value);
+                            break;
+                        }
+                        else if (inputs[i].type === 'number') {
+                            value = parseInt(inputs[i].value);
+                            if (key === 'BMI') {
+                                let weight = $("input[name='weight']").val();
+                                let height = $("input[name='height']").val();
+                                value = calculateBmi(weight, height);
+                            }
+                            break;
+                        }
                     }
                 }
-            }
 
+                // Добавление значения ответа в список ответов
+                if (!isNaN(value)) {
+                    let answer = new Object();
+                    answer.QuestionKey = key;
+                    answer.AnswerValue = value;
+                    answers.push(answer);
+                }
+
+            }
+            console.log(answers);
             return answers;
+        }
+
+        // Изменить состояние отключения элемента
+        function changeStateDisabled(nameElement, isDisable) {
+            $(nameElement).prop('disabled', isDisable);
+        }
+
+        // Изменить состояние прогресса прохождения опроса
+        function setProgress(currentValue) {
+            let num = parseInt(currentValue);
+            let minValue = parseInt($('.progress-bar').attr("aria-valuemin"));
+            let maxValue = parseInt($('.progress-bar').attr("aria-valuemax"));
+
+            if (num >= minValue && num <= maxValue) {
+                $('.progress-bar').attr("aria-valuenow", num);
+
+                let percentComplete = parseInt((num / maxValue) * 100);
+                $('.progress-bar').css("width", percentComplete + '%');
+                $('.progress-bar').text(percentComplete + '%');
+            }
         }
 
     </script>
@@ -165,48 +244,86 @@
 
         $(document).ready(function () {
 
+            changeStateDisabled('#previousQuestionBtn', true);
             $('#blockId_1').css("display", "block");
+            $('#loadAnimation').css("display", "none");
 
             // Обработчик события нажатия кнопки перехода к следующему вопросу
             $('#nextQuestionBtn').on('click', function () {
 
-                let numberQuestion = parseInt($('#currentQuestion').text());
-                let isValid = validateInputsQuestion(numberQuestion);
+                let questionNumber = parseInt($('#currentQuestion').text());
+                let nextQuestionNumber = questionNumber + 1;
+
+                let isValid = validateInputsQuestion(questionNumber);
                 if (!isValid) {
-                    alert("Необходимо ответить на текущий вопрос, чтобы перейти к следующему.");
+                    $('form .invalid-feedback').css('display', 'block');
+                    return;
+                }
+                else {
+                    $('form .invalid-feedback').css('display', 'none');
+                }
+
+                setProgress(questionNumber);
+
+                // Отправка формы, если текущий вопрос последний
+                if (questionNumber === @lastQuestionNumber) {
+                    $('form').submit();
+                    changeStateDisabled('#previousQuestionBtn', true);
+                    changeStateDisabled('#nextQuestionBtn', true);
+                    $('#loadAnimation').css("display", "block");
                     return;
                 }
 
-                let currentBlock = '#blockId_' + numberQuestion;
+                let currentBlock = '#blockId_' + questionNumber;
                 $(currentBlock).css("display", "none");
 
-                let nextBlock = '#blockId_' + (numberQuestion + 1);
+                let nextBlock = '#blockId_' + nextQuestionNumber;
                 $(nextBlock).css("display", "block");
 
-                $('#currentQuestion').text(numberQuestion + 1);
+                $('#currentQuestion').text(nextQuestionNumber);
+
+                if (nextQuestionNumber === 2) {
+
+                    $('#previousQuestionBtn').prop("disabled", false);
+                }
+                else if (nextQuestionNumber === @lastQuestionNumber) {
+                    $('#nextQuestionBtn').text("Получить результат");
+                }
             });
 
             // Обработчик события нажатия кнопки перехода к прошлому вопросу
             $('#previousQuestionBtn').on('click', function () {
 
-                let numberQuestion = parseInt($('#currentQuestion').text());
+                let questionNumber = parseInt($('#currentQuestion').text());
+                let previousQuestionNumber = questionNumber - 1;
 
-                let currentBlock = '#blockId_' + numberQuestion;
+                setProgress(previousQuestionNumber - 1);
+                $('form .invalid-feedback').css('display', 'none');
+
+                let currentBlock = '#blockId_' + questionNumber;
                 $(currentBlock).css("display", "none");
 
-                let nextBlock = '#blockId_' + (numberQuestion - 1);
+                let nextBlock = '#blockId_' + previousQuestionNumber;
                 $(nextBlock).css("display", "block");
 
-                $('#currentQuestion').text(numberQuestion - 1);
+                $('#currentQuestion').text(previousQuestionNumber);
+
+                if (questionNumber === @lastQuestionNumber) {
+                    $('#nextQuestionBtn').text("Дальше");
+                }
+                if (previousQuestionNumber === 1) {
+                    changeStateDisabled('#previousQuestionBtn', true);
+                }
             });
 
-            // Отправка формы
+            // Обработчик события отправки формы
             $('form').submit(function (e) {
 
                 e.preventDefault();
 
+                setProgress(@lastQuestionNumber);
+
                 let answers = getAnswers();
-                console.log(answers);
                 let dataJson = JSON.stringify(answers);
 
                 $.ajax({
@@ -220,6 +337,11 @@
                     error: function (data) {
                         alert("Возникла непредвиденная ошибка. Попробуйте повторить действие позже.");
                         console.log(data);
+                    },
+                    complete: function (data) {
+                        changeStateDisabled('#previousQuestionBtn', false);
+                        changeStateDisabled('#nextQuestionBtn', false);
+                        $('#loadAnimation').css("display", "none");
                     }
                 });
 

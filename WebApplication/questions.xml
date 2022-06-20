@@ -3,7 +3,7 @@
 
 	<QuestionModel>
 		<Key>Sex</Key>
-		<Text>Укажите ваш пол</Text>
+		<Text>Укажите ваш пол:</Text>
 		<AnswerChoices>
 			<ChoiceModel>
 				<Value>1</Value>
@@ -18,7 +18,7 @@
 
 	<QuestionModel>
 		<Key>Age</Key>
-		<Text>Укажите ваш возраст</Text>
+		<Text>Укажите ваш возраст:</Text>
 		<AnswerChoices>
 			<ChoiceModel>
 				<Value>1</Value>
@@ -76,8 +76,13 @@
 	</QuestionModel>
 
 	<QuestionModel>
+		<Key>BMI</Key>
+		<Text>Укажите ваш рост и вес:</Text>
+	</QuestionModel>
+	
+	<QuestionModel>
 		<Key>Education</Key>
-		<Text>Укажите ваш уровень образования</Text>
+		<Text>Укажите ваш уровень образования:</Text>
 		<AnswerChoices>
 			<ChoiceModel>
 				<Value>1</Value>
@@ -306,11 +311,6 @@
 				<Text>Плохо</Text>
 			</ChoiceModel>
 		</AnswerChoices>
-	</QuestionModel>
-	
-	<QuestionModel>
-		<Key>BMI</Key>
-		<Text>Какой у вас рост и вес?</Text>
 	</QuestionModel>
 	
 </ArrayOfQuestionModel>
