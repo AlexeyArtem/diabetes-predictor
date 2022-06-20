@@ -1,16 +1,60 @@
-﻿
+﻿@using Newtonsoft.Json.Linq;
 @{
     ViewData["Title"] = "Факторы риска развития сахарного диабета";
 }
+@model Dictionary<string, double>;
+
 <h1 class="text-center">@ViewData["Title"]</h1>
-<p>В ходе анализа были обнаружены факторы, которые наиболее сильно влияют на вероятность развития диабета. На графике представлены названия факторов и коэфициенты. Чем выше коэфициент, тем сильнее фактор влияет на вероятность диабета.</p>
-<div id="chartFactors"></div>
 
-@section Scripts{ 
+<table>
+    <tr>
+        <td style="width:60%">
+            <div id="chartFactors"></div>
+        </td>
+        <td>
+            <p class="lead">В ходе анализа были обнаружены факторы риска, которые наиболее сильно влияют на вероятность развития диабета.</p>
+            <p class="lead">На графике представлены названия факторов и коэфициенты. Чем выше коэфициент, тем сильнее фактор влияет на риск развития диабета.</p>
+        </td>
+    </tr>
+</table>
 
+@section Scripts{
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     @* Скрипт отрисовки графика *@
     <script>
+        google.charts.load("current", { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
 
+        function drawChart() {
+            let color = "#1b6ec2";
+            var data = google.visualization.arrayToDataTable([
+                ["Element", "Density", { role: "style" }],
+                ["Индекс массы тела", parseFloat(@Model["BMI"].ToString().Replace(',', '.')), color],
+                ["Возраст", parseFloat(@Model["Age"].ToString().Replace(',', '.')), color],
+                ["Уровень давления", parseFloat(@Model["HighBP"].ToString().Replace(',', '.')), color],
+                ["Уровень холестирина", parseFloat(@Model["HighChol"].ToString().Replace(',', '.')), color],
+                ["Пол", parseFloat(@Model["Sex"].ToString().Replace(',', '.')), color],
+            ]);
+
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1,
+            {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            },
+            2]);
+
+            var options = {
+                height: 600,
+                bar: { groupWidth: "95%" },
+                legend: { position: "none" },
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById("chartFactors"));
+            chart.draw(view, options);
+        }
     </script>
 
 }

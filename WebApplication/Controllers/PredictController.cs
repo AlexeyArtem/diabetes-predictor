@@ -2,31 +2,24 @@
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using WebApplication.Models;
+using System.Collections.Generic;
 
 namespace WebApplication.Controllers
 {
     public class PredictController : Controller
     {
-        private string apiUrl;
+        public PredictController() { }
 
-        public PredictController() 
-        {
-            apiUrl = "http://127.0.0.1:5000/predict";
-        }
-
-        private JObject RequestPredict(string jsonParameters)
+        private JObject RequestJson(string url, HttpMethod httpMethod, string jsonParameters = "")
         {
             var content = new StringContent(jsonParameters, Encoding.UTF8, "application/json");
             var request = new HttpRequestMessage
             {
-                Method = HttpMethod.Post,
-                RequestUri = new Uri(apiUrl),
+                Method = httpMethod,
+                RequestUri = new Uri(url),
                 Content = content
             };
 
@@ -48,6 +41,16 @@ namespace WebApplication.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult GetRiskFactors() 
+        {
+            JObject result = RequestJson("http://127.0.0.1:5000/risk-coefficients", HttpMethod.Get);
+
+            Dictionary<string, double> values = JObject.FromObject(result).ToObject<Dictionary<string, double>>();
+
+            return View("RiskFactors", values);
+        }
+
         [HttpPost]
         public IActionResult GetPredict([FromBody]AnswerModel[] data)
         {
@@ -59,7 +62,7 @@ namespace WebApplication.Controllers
                 jsonObject[answer.QuestionKey] = answer.AnswerValue;
             }
             string jsonStr = JsonConvert.SerializeObject(jsonObject);
-            JObject result = RequestPredict(jsonStr);
+            JObject result = RequestJson("http://127.0.0.1:5000/predict", HttpMethod.Post, jsonStr);
             double probability = result.Value<double>("Probability_diabetes");
 
             return PartialView("_Predict", new PredictModel(probability));

@@ -1,9 +1,12 @@
 import numpy as np
+import sklearn
 from flask import Flask, jsonify, request, abort
 from keras.models import load_model
+from joblib import load
 
 app = Flask(__name__)
 model = load_model('neural_pred_diabet.h5')
+regr_model = load('regr_model.joblib')
 name_attributes = ["HighBP", "HighChol", "CholCheck", "BMI", "Smoker", "Stroke", "HeartDiseaseorAttack", "PhysActivity",
                    "Fruits", "Veggies", "HvyAlcoholConsump", "GenHlth", "MentHlth", "PhysHlth", "DiffWalk", "Sex",
                    "Age"]
@@ -40,5 +43,17 @@ def get_predict():
         abort(400)
 
 
+@app.route('/risk-coefficients', methods=['GET'])
+def get_coefficients():
+
+    resultJson = { }
+    coefs = regr_model.coef_.ravel()
+    for i in range(coefs.size):
+        resultJson[name_attributes[i]] = coefs[i]
+
+    return jsonify(resultJson)
+
+
 if __name__ == '__main__':
+    print(sklearn.__version__)
     app.run()
