@@ -3,10 +3,10 @@ from flask import Flask, jsonify, request, abort
 from keras.models import load_model
 
 app = Flask(__name__)
-model = load_model('neural_model_pred_diabet.h5')
+model = load_model('neural_pred_diabet.h5')
 name_attributes = ["HighBP", "HighChol", "CholCheck", "BMI", "Smoker", "Stroke", "HeartDiseaseorAttack", "PhysActivity",
                    "Fruits", "Veggies", "HvyAlcoholConsump", "GenHlth", "MentHlth", "PhysHlth", "DiffWalk", "Sex",
-                   "Age", "Education"]
+                   "Age"]
 
 
 @app.route('/')

@@ -76,3 +76,4 @@ C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1
 C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.pdb
 C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.genruntimeconfig.cache
 C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\WebApplication.csprojAssemblyReference.cache
+C:\Users\Artem\Desktop\diabetes-predictor\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Shared\RiskFactors.cshtml.g.cs

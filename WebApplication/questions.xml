@@ -81,37 +81,6 @@
 	</QuestionModel>
 	
 	<QuestionModel>
-		<Key>Education</Key>
-		<Text>Укажите ваш уровень образования:</Text>
-		<AnswerChoices>
-			<ChoiceModel>
-				<Value>1</Value>
-				<Text>Нет образования</Text>
-			</ChoiceModel>
-			<ChoiceModel>
-				<Value>2</Value>
-				<Text>Начальная школа</Text>
-			</ChoiceModel>
-			<ChoiceModel>
-				<Value>3</Value>
-				<Text>Старшие классы</Text>
-			</ChoiceModel>
-			<ChoiceModel>
-				<Value>4</Value>
-				<Text>Средняя школа</Text>
-			</ChoiceModel>
-			<ChoiceModel>
-				<Value>5</Value>
-				<Text>Колледж</Text>
-			</ChoiceModel>
-			<ChoiceModel>
-				<Value>6</Value>
-				<Text>Университет</Text>
-			</ChoiceModel>
-		</AnswerChoices>
-	</QuestionModel>
-	
-	<QuestionModel>
 		<Key>HighBP</Key>
 		<Text>У вас когда-нибудь диагностировали высокий уровень давления?</Text>
 		<AnswerChoices>
