@@ -24,6 +24,10 @@ a {
   border-color: #1861ac;
 }
 
+form .invalid-feedback {
+  margin-bottom: 10px;
+}
+
 .questions-block {
     border-radius: 4px;
     padding: 8px;

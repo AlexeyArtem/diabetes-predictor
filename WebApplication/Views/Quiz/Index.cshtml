@@ -43,8 +43,10 @@
                         }
                         else
                         {
-                            <input type="range" class="form-control-range text-center" placeholder="Введите значение" min="0" max="30" oninput="$('#rangeval').html($(this).val())">
-                            <span id="rangeval">15</span>
+                            string nameIdRangeValue = "rangeValue_" + i;
+                            string selectorRangeValue = "#" + nameIdRangeValue;
+                            <input type="range" class="form-control-range text-center" placeholder="Введите значение" min="0" max="30" oninput="$('@selectorRangeValue').html($(this).val())">
+                            <span id=@nameIdRangeValue>15</span>
                         }
                     }
 
@@ -76,7 +78,7 @@
                 </div>
             </div>
         }
-        <div class="invalid-feedback text-center">Необходимо ответить на текущий вопрос, чтобы перейти к следующему</div><br>
+        <div class="invalid-feedback text-center">Необходимо ответить на текущий вопрос, чтобы перейти к следующему</div>
 
         <div class="text-center">
             <button type="button" id="previousQuestionBtn" class="btn btn-primary">Назад</button>
