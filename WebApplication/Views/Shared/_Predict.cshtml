@@ -1,4 +1,35 @@
 ﻿@model PredictModel
-<h3>Результат прогнозирования</h3>
-<p>Вероятность заболевания диабетом составаляет @String.Format("{0:P2}.", Model.ProbabilityDiabetes)</p>
-<a class="btn btn-outline-primary" asp-action="Index" asp-controller="Quiz">Пройти тест заново</a>
+<h3 class="text-center">Результат прогнозирования</h3><br>
+<p>Вероятность заболевания диабетом составляет <mark>@String.Format("{0:P2}.", Model.ProbabilityDiabetes)</mark></p>
+@{
+    string recommendationText = "";
+    string riskName = "";
+    switch (Model.DiabetesRisk)
+    {
+        case DiabetesRisk.Low:
+            riskName = "низкий уровень риска";
+            recommendationText = "Продолжайте придеживаться текущего образа жизни. Обратите внимание на общие рекомендации, которые помогут еще больше снизить уровень риска развития диабета.";
+            break;
+        case DiabetesRisk.Middle:
+            riskName = "повышенный уровень риска";
+            recommendationText = "Начните придерживаться общих рекомендаций, которые помогут снизить уровень риска развития диабета.";
+            break;
+        case DiabetesRisk.Hight:
+            riskName = "высокий уровень риска";
+            recommendationText = "Рекомендуем обратиться к врачу и сдать анализы на диабет. Точный диагноз может поставить только врач.";
+            break;
+    }
+    <p>По результат теста у вас <mark>@riskName</mark> развития диабета. @recommendationText</p>
+}
+<p>Общие рекомендации, которые помогут снизить риск развития диабета:</p>
+<ul>
+    <li>Ежедневно делайте физические упражнения.</li>
+    <li>Поддерживайте вес в здоровом диапазоне.</li>
+    <li>Регулярно употребляйте в пищу фрукты и овощи.</li>
+    <li>Пейте больше простой воды и меньше сладких напитков.</li>
+    <li>Не употребляйте алкоголь и не курите.</li>
+</ul>
+
+<div class="text-center">
+    <a class="btn btn-outline-primary" asp-action="Index" asp-controller="Quiz">Пройти тест заново</a>
+</div>

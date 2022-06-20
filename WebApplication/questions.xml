@@ -113,7 +113,22 @@
 	
 	<QuestionModel>
 		<Key>HighBP</Key>
-		<Text>У вас высокий уровень давления?</Text>
+		<Text>У вас когда-нибудь диагностировали высокий уровень давления?</Text>
+		<AnswerChoices>
+			<ChoiceModel>
+				<Value>1</Value>
+				<Text>Да</Text>
+			</ChoiceModel>
+			<ChoiceModel>
+				<Value>0</Value>
+				<Text>Нет</Text>
+			</ChoiceModel>
+		</AnswerChoices>
+	</QuestionModel>
+	
+	<QuestionModel>
+		<Key>HeartDiseaseorAttack</Key>
+		<Text>У вас когда-нибудь диагностировали ишемическую болезнь сердца или инфаркт миокардо?</Text>
 		<AnswerChoices>
 			<ChoiceModel>
 				<Value>1</Value>
@@ -128,7 +143,7 @@
 	
 	<QuestionModel>
 		<Key>HighChol</Key>
-		<Text>У вас высокий уровень холестирина?</Text>
+		<Text>У вас когда-нибудь диагностировали высокий уровень холестирина?</Text>
 		<AnswerChoices>
 			<ChoiceModel>
 				<Value>1</Value>
@@ -158,7 +173,7 @@
 
 	<QuestionModel>
 		<Key>Stroke</Key>
-		<Text>Был ли у Вас инсульт?</Text>
+		<Text>Был ли у вас инсульт?</Text>
 		<AnswerChoices>
 			<ChoiceModel>
 				<Value>1</Value>
@@ -171,20 +186,7 @@
 		</AnswerChoices>
 	</QuestionModel>
 
-	<QuestionModel>
-		<Key>HeartDiseaseorAttack</Key>
-		<Text>Есть ли у вас ишемическая болезнь сердца или инфаркт миокардо?</Text>
-		<AnswerChoices>
-			<ChoiceModel>
-				<Value>1</Value>
-				<Text>Да</Text>
-			</ChoiceModel>
-			<ChoiceModel>
-				<Value>0</Value>
-				<Text>Нет</Text>
-			</ChoiceModel>
-		</AnswerChoices>
-	</QuestionModel>
+	
 
 	<QuestionModel>
 		<Key>PhysActivity</Key>
@@ -263,7 +265,7 @@
 
 	<QuestionModel>
 		<Key>DiffWalk</Key>
-		<Text>Испытваете ли вы серьезные трудности при ходьбе или подъеме по лестнице?</Text>
+		<Text>Испытваете ли вы трудности при ходьбе или подъеме по лестнице?</Text>
 		<AnswerChoices>
 			<ChoiceModel>
 				<Value>1</Value>
